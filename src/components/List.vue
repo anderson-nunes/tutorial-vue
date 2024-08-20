@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
-import Usuario from "@/components/Usuario.vue";
+import { ref, onMounted } from "vue";
+import User from "@/components/User.vue";
 
 const pessoas = ref([]);
 
@@ -18,15 +18,8 @@ onMounted(async () => {
 
 <template>
   <div class="pessoas">
-    <div class="perfil" v-for="pessoa in pessoas" :key="pessoa.id">
-      <h3 style="color: red" v-if="pessoa.first_name === 'George'">Gerente</h3>
-      <h3 style="color: blue" v-else>Funcionario</h3>
-      <img :src="pessoa.avatar" alt="perfil" />
-      <strong>{{ nomeCompleto }}</strong>
-      <span>{{ pessoa.email }}</span>
-    </div>
+    <User v-for="pessoa in pessoas" :key="pessoa.id" :pessoa="pessoa" />
   </div>
-  <Usuario first_name="Anderson" />
 </template>
 <style scoped>
 .pessoas {

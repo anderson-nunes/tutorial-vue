@@ -24,6 +24,10 @@ const buscaInformacoes = async (codigo: number) => {
   const data = json.data;
   return data;
 };
+
+defineProps({
+  first_name: String,
+});
 </script>
 <template>
   <div class="container">
@@ -48,6 +52,7 @@ const buscaInformacoes = async (codigo: number) => {
       <strong>{{ nomeCompleto }}</strong>
       <span>{{ pessoa.email }}</span>
     </div>
+    <strong>{{ first_name }}</strong>
   </div>
 </template>
 <style scoped>

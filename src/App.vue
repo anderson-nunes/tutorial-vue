@@ -2,6 +2,8 @@
 import Cabecalho from "./components/Cabecalho.vue";
 import Usuario from "./components/Usuario.vue";
 import ListaUsuario from "./components/ListaUsuario.vue";
+import ListUser from "./components/ListUser.vue";
+import List from "./components/List.vue";
 </script>
 
 <template>
@@ -11,8 +13,10 @@ import ListaUsuario from "./components/ListaUsuario.vue";
   </header>
 
   <main>
-    <Usuario />
+    <!-- <Usuario />
     <ListaUsuario />
+    <ListUser /> -->
+    <List />
   </main>
 </template>
 
