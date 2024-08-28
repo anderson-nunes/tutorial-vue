@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import Cabecalho from "./components/Cabecalho.vue";
-import Usuario from "./components/Usuario.vue";
-import ListaUsuario from "./components/ListaUsuario.vue";
-import ListUser from "./components/ListUser.vue";
+// import Usuario from "./components/Usuario.vue";
+// import ListaUsuario from "./components/ListaUsuario.vue";
+// import ListUser from "./components/ListUser.vue";
 import List from "./components/List.vue";
+import EmitsFilho from "./components/EmitsFilho.vue";
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import List from "./components/List.vue";
     <ListaUsuario />
     <ListUser /> -->
     <List />
+    <EmitsFilho />
   </main>
 </template>
 
