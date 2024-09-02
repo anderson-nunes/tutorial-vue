@@ -5,6 +5,8 @@ import Cabecalho from "./components/Cabecalho.vue";
 // import ListUser from "./components/ListUser.vue";
 import List from "./components/List.vue";
 import EmitsFilho from "./components/EmitsFilho.vue";
+// import Child from "./components/Child.vue";
+import Teste from "./components/Teste.vue";
 </script>
 
 <template>
@@ -19,6 +21,8 @@ import EmitsFilho from "./components/EmitsFilho.vue";
     <ListUser /> -->
     <List />
     <EmitsFilho />
+    <!-- <Child /> -->
+    <Teste />
   </main>
 </template>
 
