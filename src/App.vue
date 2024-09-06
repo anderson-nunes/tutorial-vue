@@ -6,7 +6,7 @@ import Cabecalho from "./components/Cabecalho.vue";
 import List from "./components/List.vue";
 import EmitsFilho from "./components/EmitsFilho.vue";
 // import Child from "./components/Child.vue";
-import Teste from "./components/Teste.vue";
+import Product from "./components/Product.vue";
 </script>
 
 <template>
@@ -22,7 +22,7 @@ import Teste from "./components/Teste.vue";
     <List />
     <EmitsFilho />
     <!-- <Child /> -->
-    <Teste />
+    <Product />
   </main>
 </template>
 

@@ -1,21 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted, watchEffect } from "vue";
+import { ref, onMounted, watchEffect, computed } from "vue";
 import User from "@/components/User.vue";
+import { useFetch } from "../composables/fetch";
 
-const pessoas = ref([]);
 const idsSelecao = ref([]);
-const pessoasSelecionadas = ref([]);
 
-const buscaInformacoes = async () => {
-  const req = await fetch(`https://reqres.in/api/users?page=2`);
-  const json = await req.json();
-  const data = json.data;
-  return data;
-};
-
-onMounted(async () => {
-  pessoas.value = await buscaInformacoes();
-});
+const {
+  data: pessoas,
+  carregando,
+  error,
+} = useFetch("https://reqres.in/api/users?page=2");
 
 const adicionaSelecao = (id: number) => {
   if (idSelecionado(id)) {
@@ -25,10 +19,9 @@ const adicionaSelecao = (id: number) => {
   }
 };
 
-watchEffect(() => {
-  pessoasSelecionadas.value = pessoas.value.filter((pessoa) =>
-    idSelecionado(pessoa.id)
-  );
+const pessoasSelecionadas = computed(() => {
+  if (!pessoas.value) return [];
+  return pessoas.value.filter((pessoa) => idSelecionado(pessoa.id));
 });
 
 const idSelecionado = (id: number) => {
@@ -41,7 +34,10 @@ const testeEventos = (evento: any) => {
 </script>
 
 <template>
-  <div class="container">
+  <div v-if="carregando">
+    <h3>Carregando...</h3>
+  </div>
+  <div v-else class="container">
     <div class="pessoas">
       <h2>Usuários Disponíveis</h2>
       <div class="usuarios-disponiveis">
