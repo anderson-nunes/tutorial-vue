@@ -27,10 +27,6 @@ const pessoasSelecionadas = computed(() => {
 const idSelecionado = (id: number) => {
   return idsSelecao.value.includes(id);
 };
-
-const testeEventos = (evento: any) => {
-  console.log("@==>", evento);
-};
 </script>
 
 <template>
@@ -40,16 +36,19 @@ const testeEventos = (evento: any) => {
   <div v-else class="container">
     <div class="pessoas">
       <h2>Usuários Disponíveis</h2>
-      <div class="usuarios-disponiveis">
-        <User
+      <div class="info-user">
+        <div
+          class="usuarios-disponiveis"
           v-for="pessoa in pessoas"
           :key="pessoa.id"
-          :pessoa="pessoa"
-          :selecao="idSelecionado(pessoa.id)"
-          :testando="{ name: 'Anderson' }"
-          @selecao="adicionaSelecao"
-          @testando="testeEventos"
-        />
+        >
+          <User
+            :pessoa="pessoa"
+            :selecao="idSelecionado(pessoa.id)"
+            :testando="{ name: 'Anderson' }"
+            @selecao="adicionaSelecao"
+          />
+        </div>
       </div>
     </div>
     <div class="selecionados">
@@ -81,6 +80,13 @@ h2 {
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 20px;
+}
+
+.info-user {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .selecionados {

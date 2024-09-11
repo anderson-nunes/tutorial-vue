@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { defineProps, defineEmits } from "vue";
 
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
 interface Pessoa {
   id: number;
   avatar: string;
@@ -24,8 +28,8 @@ const enviaEmit = () => {
   emit("selecao", props.pessoa.id);
 };
 
-const emitTestando = () => {
-  emit("testando", `Evento disparado para ${props.testando.name}`);
+const redirecionaFuncionario = (id: any) => {
+  router.push(`/equipe/${id}`);
 };
 </script>
 
@@ -43,7 +47,9 @@ const emitTestando = () => {
     >
       {{ !props.selecao ? "Selecionar" : "Desmarcar" }}
     </button>
-    <button @click="emitTestando">teste</button>
+    <button class="btn-info" @click="redirecionaFuncionario(pessoa.id)">
+      Info funcionario
+    </button>
   </div>
 </template>
 
@@ -83,6 +89,11 @@ button.selecionar {
 
 button.desmarcar {
   background-color: #f44336;
+  color: white;
+}
+
+.btn-info {
+  background: #4681f4;
   color: white;
 }
 </style>
