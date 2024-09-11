@@ -1,4 +1,11 @@
 <script setup lang="ts">
+import { useCargos } from "../store/cargos";
+import { storeToRefs } from "pinia";
+
+const store = useCargos();
+
+const { totalCargos } = storeToRefs(store);
+
 const menus = [
   { id: 1, nome: "Home", path: "/" },
   { id: 2, nome: "Equipe", path: "/equipe" },
@@ -7,6 +14,7 @@ const menus = [
 <template>
   <nav>
     <span>Tutorial Vue</span>
+    Total Cargos {{ totalCargos }}
     <ul>
       <li v-for="menu in menus" :key="menu.id">
         <router-link :to="menu.path">{{ menu.nome }}</router-link>
