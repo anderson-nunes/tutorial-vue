@@ -1,12 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const menus = [
+  { id: 1, nome: "Home", path: "/" },
+  { id: 2, nome: "Equipe", path: "/equipe" },
+];
+</script>
 <template>
   <nav>
     <span>Tutorial Vue</span>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Sobre</a></li>
-      <li><a href="#">Login</a></li>
-      <li></li>
+      <li v-for="menu in menus" :key="menu.id">
+        <router-link :to="menu.path">{{ menu.nome }}</router-link>
+      </li>
     </ul>
   </nav>
 </template>

@@ -3,10 +3,10 @@ import Cabecalho from "./components/Cabecalho.vue";
 // import Usuario from "./components/Usuario.vue";
 // import ListaUsuario from "./components/ListaUsuario.vue";
 // import ListUser from "./components/ListUser.vue";
-import List from "./components/List.vue";
 import EmitsFilho from "./components/EmitsFilho.vue";
 // import Child from "./components/Child.vue";
 import Product from "./components/Product.vue";
+import Video from "./components/Video.vue";
 </script>
 
 <template>
@@ -16,13 +16,15 @@ import Product from "./components/Product.vue";
   </header>
 
   <main>
+    <router-view></router-view>
     <!-- <Usuario />
     <ListaUsuario />
     <ListUser /> -->
-    <List />
-    <EmitsFilho />
+
+    <!-- <EmitsFilho /> -->
     <!-- <Child /> -->
-    <Product />
+    <!-- <Product /> -->
+    <!-- <Video /> -->
   </main>
 </template>
 
@@ -35,5 +37,15 @@ import Product from "./components/Product.vue";
 }
 header {
   line-height: 1.5;
+}
+
+[color-scheme="dark"] {
+  background: black;
+  color: white;
+}
+
+[color-scheme="light"] {
+  background: orange;
+  color: white;
 }
 </style>
