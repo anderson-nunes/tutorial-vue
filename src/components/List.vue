@@ -27,6 +27,10 @@ const pessoasSelecionadas = computed(() => {
 const idSelecionado = (id: number) => {
   return idsSelecao.value.includes(id);
 };
+
+const msgFilho = () => {
+  alert("Mensagem enviada para o filho");
+};
 </script>
 
 <template>
@@ -47,7 +51,12 @@ const idSelecionado = (id: number) => {
             :selecao="idSelecionado(pessoa.id)"
             :testando="{ name: 'Anderson' }"
             @selecao="adicionaSelecao"
-          />
+          >
+            <template #extra>
+              <button @click="msgFilho">Envia Mensagem</button>
+            </template>
+            <template #msg> mensagem para teste </template>
+          </User>
         </div>
       </div>
     </div>
@@ -59,6 +68,9 @@ const idSelecionado = (id: number) => {
           <span>{{ pm.first_name }}</span>
         </div>
       </div>
+    </div>
+    <div>
+      <slot :funcao="msgFilho"></slot>
     </div>
   </div>
 </template>

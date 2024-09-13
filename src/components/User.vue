@@ -50,6 +50,8 @@ const redirecionaFuncionario = (id: any) => {
     <button class="btn-info" @click="redirecionaFuncionario(pessoa.id)">
       Info funcionario
     </button>
+    <slot name="extra"></slot>
+    <slot name="msg"> </slot>
   </div>
 </template>
 
